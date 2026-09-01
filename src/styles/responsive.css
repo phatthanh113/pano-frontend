@@ -1,0 +1,299 @@
+/* ===== Tablet (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+  .top-nav {
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    gap: 6px;
+  }
+
+  .nav-tabs {
+    gap: 6px;
+  }
+
+  .nav-tab {
+    padding: 10px 16px;
+    font-size: var(--font-sm);
+  }
+
+  .nav-icon-btn {
+    width: 38px;
+    height: 38px;
+    font-size: var(--font-base);
+  }
+
+  .submenu {
+    min-width: 240px;
+  }
+
+  .submenu-item {
+    padding: 10px var(--spacing-lg);
+  }
+
+  .submenu-name {
+    font-size: var(--font-sm);
+  }
+}
+
+/* ===== Mobile Landscape (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 12px;
+  }
+
+  .top-nav {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .nav-tabs {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .nav-tab {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .nav-icon-btn {
+    width: 34px;
+    height: 34px;
+    font-size: var(--font-sm);
+  }
+
+  .submenu {
+    position: fixed;
+    top: auto;
+    bottom: 60px;
+    left: 10px;
+    right: 10px;
+    min-width: auto;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .submenu-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    padding: var(--spacing-sm);
+  }
+
+  .submenu-item {
+    padding: 10px 12px;
+    border-left: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .submenu-item:hover,
+  .submenu-item.active {
+    border-left: none;
+    background: rgba(26, 93, 74, 0.1);
+  }
+}
+
+/* ===== Mobile Portrait (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .top-nav {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    gap: 4px;
+  }
+
+  .nav-tabs {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-tab {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .nav-actions {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .submenu {
+    bottom: auto;
+    top: 50px;
+    left: 8px;
+    right: 8px;
+    max-height: 40vh;
+  }
+
+  .submenu-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .submenu-item {
+    padding: 12px;
+  }
+
+  .submenu-name {
+    font-size: 0.8rem;
+  }
+
+  /* Hotspot smaller on mobile */
+  .hotspot-marker {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hotspot-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+
+  .hotspot-pulse {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ===== Very Small Screens (max-width: 360px) ===== */
+@media (max-width: 360px) {
+  .nav-tab {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+
+  .nav-icon-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .submenu-item {
+    padding: 10px;
+  }
+}
+
+/* ===== Landscape Mode Optimization ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .top-nav {
+    top: 8px;
+    right: 8px;
+  }
+
+  .nav-tab {
+    padding: 6px 12px;
+  }
+
+  .nav-icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .submenu {
+    max-height: 60vh;
+    top: calc(100% + 8px);
+  }
+
+  .submenu-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .submenu-item {
+    padding: 8px 10px;
+  }
+}
+
+/* ===== High DPI / Retina Displays ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-tab,
+  .nav-icon-btn,
+  .submenu {
+    border-width: 0.5px;
+  }
+}
+
+/* ===== Touch Devices ===== */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch */
+  .nav-tab-wrapper:hover .nav-tab {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+    border-color: var(--border-medium);
+    background: var(--bg-white);
+  }
+
+  .nav-tab-wrapper.active:hover .nav-tab {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  /* Disable hover submenu - chỉ mở bằng click */
+  .nav-tab-wrapper:hover .submenu {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Chỉ mở submenu khi có class .open */
+  .nav-tab-wrapper.open .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-icon-btn:hover {
+    transform: none;
+  }
+
+  /* Larger touch targets */
+  .nav-tab {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .submenu-item {
+    min-height: 44px;
+  }
+}
+
+/* ===== New Building UI Responsive ===== */
+@media (max-width: 768px) {
+  .map-image-wrapper { padding: 50px 110px 80px 10px !important; }
+  .hotspots-layer { right: 110px !important; }
+  .map-minimap-wrap { top: 40px !important; right: 4px !important; }
+  .footer-wrap { padding: 0 8px; }
+  .footer-carousel-container { max-width: 92vw !important; }
+}
+@media (max-width: 480px) {
+  .building-sidebar { right: 6px !important; width: 96px !important; }
+  .bs-btn { font-size: 10px !important; padding: 5px 4px !important; }
+  .map-minimap-box { width: 110px !important; height: 80px !important; }
+  .top-header-image { top: 4px !important; }
+  .th-icon-btn { width: 30px !important; height: 24px !important; }
+  .floor-map-container { cursor: default; }
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .nav-tab,
+  .nav-icon-btn,
+  .submenu,
+  .hotspot-icon,
+  .hotspot-pulse {
+    transition: none;
+    animation: none;
+  }
+}

@@ -1,0 +1,281 @@
+/* ===== Panorama Viewer Container ===== */
+.panorama-viewer-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
+}
+
+/* Backdrop mờ - giữ lại ảnh cũ làm nền khi chuyển cảnh, không bao giờ đen */
+.pano-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) brightness(0.7) scale(1.08);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===== Hide Photo Sphere Viewer default loading spinner ===== */
+.psv-loader-container,
+.psv-loader {
+  display: none !important;
+}
+
+
+/* ===== Unified Minimap in Panorama (thay thế MiniMap cũ - Image2 thay Image3) ===== */
+.pano-unified-minimap-wrap {
+  position: absolute;
+  top: 44px;
+  right: 172px;
+  z-index: 45;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+.pano-unified-minimap-wrap .mm-ctrls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pano-unified-minimap-wrap .mm-ctrl-btn {
+  width: 26px;
+  height: 26px;
+  background: #5a5a5a;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.pano-unified-minimap-wrap .mm-ctrl-btn:hover { background: #6e6e6e; }
+
+/* ===== Scene Wrapper — Zoom Transition ===== */
+.pano-scene-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  background: transparent;
+}
+
+/* Phase: idle — no transform */
+.pano-scene-idle {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Phase: out — chỉ fade (viewer đã tự zoom vào hotspot bằng animate) */
+.pano-scene-out {
+  animation: scene-zoom-out 0.35s ease-in forwards;
+}
+
+@keyframes scene-zoom-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Phase: in — new scene arrives với kích thước thật (chỉ fade, không scale) */
+.pano-scene-in {
+  animation: scene-zoom-in 0.45s ease-out forwards;
+}
+
+@keyframes scene-zoom-in {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== 3D Hotspot in Panorama Scene ===== */
+.scene-hotspot-pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transform: translate(-50%, -100%);
+  pointer-events: auto;
+  user-select: none;
+}
+
+.scene-hotspot-badge {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #2563eb;
+  color: #2563eb;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.scene-hotspot-pin:hover .scene-hotspot-badge {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.scene-hotspot-pointer {
+  color: #2563eb;
+  font-size: 9px;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* Ring wrap: positioned so rings expand outward from center */
+.scene-hotspot-ring-wrap {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Solid center ring (dot) */
+.scene-hotspot-ring {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #2563eb;
+  background: rgba(37, 99, 235, 0.25);
+  z-index: 2;
+}
+
+.scene-hotspot-pin:hover .scene-hotspot-ring {
+  background: rgba(37, 99, 235, 0.55);
+}
+
+/* Pulse rings that expand outward slowly */
+.scene-hotspot-pulse {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(37, 99, 235, 0.7);
+  animation: hotspot-pulse-out 2s ease-out infinite;
+  z-index: 1;
+}
+
+.scene-hotspot-pulse--delay {
+  animation-delay: 1s;
+}
+
+@keyframes hotspot-pulse-out {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* ===== Bottom-Left Toolbar - PC: dọc mảnh mép trái, kính mờ (theo yêu cầu) ===== */
+.pano-bottomleft-toolbar {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 46;
+  background: rgba(30,30,30,0.42);
+  backdrop-filter: blur(8px) saturate(1.2);
+  -webkit-backdrop-filter: blur(8px) saturate(1.2);
+  padding: 8px 5px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+}
+
+.bottom-tool-btn {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.06);
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+.bottom-tool-btn:hover { background: #ffffff; transform: scale(1.06); box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+.bottom-tool-btn:active { background: #f3f4f6; transform: scale(0.97); }
+
+/* Tablet trở xuống: giữ dọc mảnh nhưng nhỏ gọn hơn, tránh đè footer */
+@media (max-width: 1024px) {
+  .pano-unified-minimap-wrap {
+    right: auto !important;
+    left: 8px !important;
+    top: 56px !important;
+    flex-direction: row-reverse !important;
+  }
+  .pano-unified-minimap-wrap .mm-ctrl-btn:nth-child(2) { display: none !important; }
+  .pano-bottomleft-toolbar {
+    left: 6px;
+    top: auto;
+    bottom: 88px;
+    transform: none;
+    flex-direction: column !important;
+    padding: 6px 4px;
+    gap: 6px;
+    border-radius: 999px;
+  }
+}
+@media (max-width: 768px) {
+  .pano-unified-minimap-wrap { top: 40px; left: 4px !important; right: auto !important; }
+  .pano-bottomleft-toolbar {
+    bottom: 88px;
+    left: 6px;
+    top: auto;
+    transform: none;
+    padding: 5px 3px;
+    gap: 5px;
+    flex-direction: column;
+    border-radius: 999px;
+  }
+  .bottom-tool-btn { width: 30px; height: 30px; font-size: 14px; }
+}
+@media (max-width: 480px) {
+  .pano-bottomleft-toolbar {
+    bottom: 76px;
+    left: 4px;
+    top: auto;
+    transform: none;
+  }
+  .bottom-tool-btn { width: 32px; height: 32px; }
+}

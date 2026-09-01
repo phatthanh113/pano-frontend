@@ -1,0 +1,34 @@
+{
+  "name": "pano",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "deploy": "powershell -ExecutionPolicy Bypass -File ./deploy.ps1",
+    "deploy:bash": "npm run build && rm -rf ../pano-admin/public/pano && mkdir -p ../pano-admin/public/pano && cp -r dist/* ../pano-admin/public/pano/"
+  },
+  "dependencies": {
+    "@photo-sphere-viewer/core": "^5.14.0",
+    "@photo-sphere-viewer/markers-plugin": "^5.14.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-photo-sphere-viewer": "^6.2.3",
+    "three": "^0.181.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "baseline-browser-mapping": "^2.11.15",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^5.4.21"
+  }
+}

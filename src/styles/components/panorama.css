@@ -1,0 +1,33 @@
+/* ===== Panorama Wrapper ===== */
+.panorama-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-panorama);
+}
+
+/* ===== Custom Tooltip Styles ===== */
+.psv-tooltip {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 93, 74, 0.95),
+    rgba(45, 138, 110, 0.95)
+  ) !important;
+  border: none !important;
+  border-radius: var(--radius-none) !important;
+  padding: 10px 16px !important;
+  font-size: var(--font-base) !important;
+  color: var(--color-white) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.psv-tooltip-arrow {
+  border-top-color: rgba(26, 93, 74, 0.95) !important;
+}
+
+/* ===== PSV Navbar Custom ===== */
+.psv-navbar {
+  background: var(--bg-overlay) !important;
+}

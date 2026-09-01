@@ -1,0 +1,118 @@
+{
+  "categories": [
+    {
+      "id": "top-view",
+      "name": "Top View",
+      "panoramas": [
+        {
+          "id": "pana1",
+          "name": "Đường 30m",
+          "url": "/images/pana1.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": [
+            {
+              "id": "hs1-1",
+              "yaw": 45,
+              "pitch": 0,
+              "tooltip": "Đi đến Phố Vân Lam",
+              "targetPanorama": "pana2"
+            }
+          ]
+        },
+        {
+          "id": "pana2",
+          "name": "Phố Vân Lam",
+          "url": "/images/pana2.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        }
+      ]
+    },
+    {
+      "id": "bird-view",
+      "name": "Bird View",
+      "panoramas": [
+        {
+          "id": "pana3",
+          "name": "Đường Dương Phổ",
+          "url": "/images/pana3.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        },
+        {
+          "id": "pana4",
+          "name": "Grand Vista Balcony",
+          "url": "/images/pana4.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        }
+      ]
+    },
+    {
+      "id": "tien-ich",
+      "name": "Tiện Ích",
+      "panoramas": [
+        {
+          "id": "pana5",
+          "name": "Đường Vĩnh Giang",
+          "url": "/images/pana1.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        },
+        {
+          "id": "pana6",
+          "name": "Dinh thự Indochine",
+          "url": "/images/pana2.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        }
+      ]
+    },
+    {
+      "id": "kien-truc",
+      "name": "Kiến Trúc",
+      "panoramas": [
+        {
+          "id": "pana7",
+          "name": "Biệt thự Tân Đông Dương",
+          "url": "/images/pana3.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        },
+        {
+          "id": "pana8",
+          "name": "Liền kề ven sông The Origami",
+          "url": "/images/pana4.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        }
+      ]
+    },
+    {
+      "id": "noi-that",
+      "name": "Nội Thất",
+      "panoramas": [
+        {
+          "id": "pana9",
+          "name": "Ban công Thượng Uyển",
+          "url": "/images/pana1.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        }
+      ]
+    },
+    {
+      "id": "lien-ket-vung",
+      "name": "Liên Kết Vùng",
+      "panoramas": [
+        {
+          "id": "pana10",
+          "name": "Kết nối giao thông",
+          "url": "/images/pana2.jpg",
+          "defaultView": { "yaw": 0, "pitch": 0 },
+          "hotspots": []
+        }
+      ]
+    }
+  ]
+}

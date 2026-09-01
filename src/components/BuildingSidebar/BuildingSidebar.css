@@ -1,0 +1,130 @@
+/* ===== Building Sidebar - bám Ảnh 1 bên phải ===== */
+.building-sidebar {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 132px;
+  max-height: calc(100vh - 160px);
+  max-height: calc(100dvh - 160px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #9ca3af transparent;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  font-family: "Hiragino Kaku Gothic Pro", "Meiryo", Arial, sans-serif;
+}
+.building-sidebar::-webkit-scrollbar { width: 4px; }
+.building-sidebar::-webkit-scrollbar-thumb { background: #9ca3af; border-radius: 2px; }
+.building-sidebar::-webkit-scrollbar-track { background: transparent; }
+
+.bs-btn {
+  width: 100%;
+  padding: 7px 8px;
+  background: #6a6a6a;
+  color: #fff;
+  border: 1px solid #6a6a6a;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.3;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  outline: none;
+}
+
+.bs-btn:hover {
+  background: #7a7a7a;
+  border-color: #7a7a7a;
+}
+
+.bs-btn.active {
+  background: #ffffff;
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+/* group */
+.bs-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 7px 6px 6px;
+  border: 1px solid #6a6a6a;
+  background: transparent;
+}
+
+.bs-group.group-active {
+  border-color: #6a6a6a;
+}
+
+.bs-group-label {
+  text-align: center;
+  font-size: 11px;
+  color: #333;
+  padding: 2px 0 4px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.bs-group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bs-floor-btn {
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+/* responsive - tablet nhỏ lại - tránh đè lên pano-unified-minimap-wrap */
+@media (max-width: 1024px) {
+  .building-sidebar {
+    right: 10px;
+    width: 90px;
+    gap: 4px;
+    max-height: calc(100vh - 140px);
+    max-height: calc(100dvh - 140px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 41;
+  }
+  .bs-btn { font-size: 10px; padding: 5px 4px; }
+  .bs-group { padding: 4px 3px 3px; gap: 3px; }
+  .bs-group-label { font-size: 9px; }
+  .bs-floor-btn { font-size: 9px; padding: 4px 4px; }
+}
+@media (max-width: 768px) {
+  .building-sidebar {
+    right: 6px;
+    width: 82px;
+    gap: 3px;
+    max-height: calc(100vh - 130px);
+    max-height: calc(100dvh - 130px);
+    top: 52%;
+  }
+  .bs-btn { font-size: 9px; padding: 4px 3px; line-height: 1.2; }
+  .bs-group { padding: 3px 2px 2px; }
+  .bs-group-label { font-size: 8px; }
+  .bs-floor-btn { font-size: 8px; padding: 3px 3px; }
+}
+@media (max-width: 480px) {
+  .building-sidebar {
+    right: 4px;
+    width: 74px;
+    gap: 3px;
+    max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px);
+  }
+  .bs-btn { font-size: 8px; padding: 3px 2px; }
+}

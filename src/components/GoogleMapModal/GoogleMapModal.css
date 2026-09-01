@@ -1,0 +1,74 @@
+.gmap-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 28px;
+}
+
+.gmap-modal {
+  position: relative;
+  width: 78vw;
+  height: 78vh;
+  max-width: 1200px;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.gmap-topbar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+.gmap-open-link {
+  background: #fff;
+  color: #1a73e8;
+  font-size: 12px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  font-family: "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+}
+
+.gmap-close {
+  position: absolute;
+  top: -2px;
+  right: -38px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.gmap-fullscreen {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .gmap-overlay { padding: 12px; }
+  .gmap-modal { width: 96vw; height: 70vh; }
+  .gmap-close { right: 6px; top: 6px; color: #333; background: #fff; border-radius: 50%; font-size: 22px; width: 28px; height: 28px; }
+}

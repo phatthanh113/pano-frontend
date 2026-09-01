@@ -1,0 +1,34 @@
+/* ===== CSS Variables & Global Settings ===== */
+:root {
+  /* Colors */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #cbd5e1;
+  --color-border-light: #e2e8f0;
+  --color-bg-panel: rgba(255, 255, 255, 0.96);
+
+  /* Clean Flat Borders & Shadows */
+  --border-radius: 4px;
+  --border-radius-card: 6px;
+  --shadow-flat: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  /* Global Font */
+  --font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

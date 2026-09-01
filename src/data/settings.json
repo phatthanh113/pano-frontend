@@ -1,0 +1,47 @@
+{
+  "settings": [
+    {
+      "id": "settings",
+      "icon": "⚙",
+      "label": "Cài đặt",
+      "action": "toggle-settings"
+    },
+    {
+      "id": "music",
+      "icon": "🎵",
+      "label": "Âm thanh",
+      "action": "toggle-music"
+    },
+    {
+      "id": "video",
+      "icon": "▶",
+      "label": "Video",
+      "action": "open-video"
+    },
+    {
+      "id": "mute",
+      "icon": "🔇",
+      "label": "Tắt tiếng",
+      "action": "toggle-mute"
+    },
+    {
+      "id": "floorplan",
+      "icon": "⊞",
+      "label": "Sơ đồ",
+      "action": "open-floorplan"
+    },
+    {
+      "id": "contact",
+      "icon": "📞",
+      "label": "Liên hệ",
+      "action": "open-contact"
+    },
+    {
+      "id": "website",
+      "icon": "🌐",
+      "label": "Website",
+      "action": "open-website",
+      "url": "https://example.com"
+    }
+  ]
+}
