@@ -17,6 +17,22 @@ export default function PanoramaViewer({ panorama, floor, onHotspotClick, onSele
   const [miniScale, setMiniScale] = useState(1);
   const [transitionPhase, setTransitionPhase] = useState("idle");
   const [visiblePanorama, setVisiblePanorama] = useState(panorama);
+  const extraImages = panorama?.extraImages || panorama?.extra_images || [];
+  const [activeExtra, setActiveExtra] = useState(null);
+  const [footerCollapsed, setFooterCollapsed] = useState(false);
+  useEffect(() => { setActiveExtra(null); }, [panorama?.id]);
+  useEffect(() => {
+    const footer = document.querySelector('.footer-wrap');
+    if (!footer) return;
+    const update = () => setFooterCollapsed(footer.classList.contains('collapsed'));
+    update();
+    const obs = new MutationObserver(update);
+    obs.observe(footer, { attributes: true, attributeFilter: ['class'] });
+    // click on collapse bar also triggers
+    const btn = footer.querySelector('.footer-collapse-bar');
+    if (btn) btn.addEventListener('click', () => setTimeout(update, 60));
+    return () => obs.disconnect();
+  }, []);
   const defaultImage = "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg";
 
   // Preload panorama đích rồi switch ngay với kích thước thật, không hiệu ứng nhảy
@@ -51,7 +67,10 @@ export default function PanoramaViewer({ panorama, floor, onHotspotClick, onSele
   }, []);
 
   const displayPanorama = visiblePanorama || panorama;
-  const markers =
+  const isExtraView = activeExtra !== null;
+  const viewerSrc = isExtraView ? extraImages[activeExtra] : (displayPanorama?.url || defaultImage);
+  const viewerKey = isExtraView ? `extra-${activeExtra}` : displayPanorama?.id;
+  const markers = isExtraView ? [] :
     displayPanorama?.hotspots?.map((hotspot) => ({
       id: hotspot.id,
       position: { yaw: `${hotspot.yaw}deg`, pitch: `${hotspot.pitch}deg` },
@@ -116,7 +135,7 @@ export default function PanoramaViewer({ panorama, floor, onHotspotClick, onSele
       <div
         className="pano-backdrop"
         style={{
-          backgroundImage: `url(${displayPanorama?.thumbnail || displayPanorama?.url || ""})`,
+          backgroundImage: `url(${isExtraView ? viewerSrc : (displayPanorama?.thumbnail || displayPanorama?.url || "")})`,
         }}
       />
       {/* Unified minimap - ẩn hiện theo th-menu-btn */}
@@ -153,23 +172,47 @@ export default function PanoramaViewer({ panorama, floor, onHotspotClick, onSele
 
       <div className={`pano-scene-wrapper pano-scene-${transitionPhase}`}>
         <ReactPhotoSphereViewer
-          key={displayPanorama?.id}
-          src={displayPanorama?.url || defaultImage}
+          key={viewerKey}
+          src={viewerSrc}
           height={"100vh"}
           width={"100%"}
           container={""}
           navbar={false}
           plugins={plugins}
           onReady={handleReady}
-          defaultYaw={`${getInitialAngle(displayPanorama)}deg`}
-          defaultPitch={`${displayPanorama?.defaultView?.pitch || 0}deg`}
+          defaultYaw={isExtraView ? "0deg" : `${getInitialAngle(displayPanorama)}deg`}
+          defaultPitch={isExtraView ? "0deg" : `${displayPanorama?.defaultView?.pitch || 0}deg`}
         />
         </div>
+
+
+
+      {/* Gallery thumbnails - hiện khi có extraImages (if exist) - tự động lên/xuống theo footer collapse */}
+      {extraImages.length > 0 && (
+        <div className={`extra-gallery-bar ${isExtraView ? "extra-gallery-bar--active" : ""} ${footerCollapsed ? "extra-gallery-bar--footer-collapsed" : ""}`}>
+          {extraImages.map((src, idx) => (
+            <button key={idx} className={`extra-thumb-btn ${activeExtra === idx ? "active" : ""}`} onClick={() => setActiveExtra(idx)} title={`Xem panorama ${idx + 1}`}>
+              <img src={src} alt={`thumb ${idx + 1}`} />
+            </button>
+          ))}
+          {isExtraView && (
+            <button className="extra-thumb-btn extra-thumb-back" onClick={() => setActiveExtra(null)} title="Back to main panorama" aria-label="Back">
+              <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path><path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path></svg>
+            </button>
+          )}
+        </div>
+      )}
 
       {showLeftToolbar && (
         <div className="pano-bottomleft-toolbar">
           <button className="bottom-tool-btn" onClick={handlePanoZoomIn} title="Phóng to 360">+</button>
           <button className="bottom-tool-btn" onClick={handlePanoZoomOut} title="Thu nhỏ 360">-</button>
+          {extraImages.length > 0 && (
+            <button className="bottom-tool-btn extra-gallery-btn" onClick={() => setActiveExtra(0)} title={`Ảnh chi tiết (${extraImages.length})`}>
+              <span style={{ fontSize: 12 }}>🖼</span>
+              <span className="extra-badge">{extraImages.length}</span>
+            </button>
+          )}
           <button className="bottom-tool-btn" title="Thông tin">ℹ</button>
           <button className="bottom-tool-btn" onClick={handleToggleFullscreen} title="Toàn màn hình">⛶</button>
         </div>
