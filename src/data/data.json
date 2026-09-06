@@ -1,0 +1,1235 @@
+{
+    "data": [
+        {
+            "id": "globe3-building-1",
+            "db_id": 1,
+            "name": "globe3-building 1",
+            "description": null,
+            "thumbnail": null,
+            "buildings": [
+                {
+                    "id": "exterior",
+                    "db_id": 1,
+                    "name": "外構",
+                    "type": "single",
+                    "description": null,
+                    "planImage": "/maps/exterior.jpg",
+                    "videos": [
+                        {
+                            "id": "video-1",
+                            "db_id": 1,
+                            "title": "ムービー 1",
+                            "label": "トラックヤード",
+                            "description": "Khu vực sân xe tải",
+                            "thumbnail": "/images/pana1.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=6HZfNsk6R2Y"
+                        },
+                        {
+                            "id": "video-2",
+                            "db_id": 2,
+                            "title": "ムービー 2",
+                            "label": "エントランス・ロビー",
+                            "description": "Sảnh đón tiếp",
+                            "thumbnail": "/images/pana2.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        },
+                        {
+                            "id": "video-3",
+                            "db_id": 3,
+                            "title": "ムービー 4",
+                            "label": "物流倉庫保管エリア",
+                            "description": "Khu vực kho chứa",
+                            "thumbnail": "/images/pana3.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                        },
+                        {
+                            "id": "video-4",
+                            "db_id": 4,
+                            "title": "ムービー 5",
+                            "label": "屋上庭園・テラス",
+                            "description": "Sân thượng Rooftop",
+                            "thumbnail": "/images/pana4.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                        }
+                    ],
+                    "panoramas": [
+                        {
+                            "id": "ext-1",
+                            "db_id": 1,
+                            "name": "新1号館外観(南西面)",
+                            "code": "南西面",
+                            "number": 1,
+                            "label": "新1号館外観(南西面)",
+                            "thumbnail": "http://pano-admin.test/storage/panoramas/thumbnails/01M15SP639DH73YYM79CQXSDBA.jpg",
+                            "url": "http://pano-admin.test/storage/panoramas/01M15SP639DH73YYM79CQXSDBA.jpg",
+                            "extraImages": [
+                                "http://pano-admin.test/storage/panoramas/extra/01M1RT2A36VYWSB69XFB9EZJNG.jpg",
+                                "http://pano-admin.test/storage/panoramas/extra/01M1RTEC7J6KC0TVKP9V2ZMNZQ.jpg"
+                            ],
+                            "extra_images": [
+                                "http://pano-admin.test/storage/panoramas/extra/01M1RT2A36VYWSB69XFB9EZJNG.jpg",
+                                "http://pano-admin.test/storage/panoramas/extra/01M1RTEC7J6KC0TVKP9V2ZMNZQ.jpg"
+                            ],
+                            "mapPosition": {
+                                "x": 42.5,
+                                "y": 76.5,
+                                "angle": 0
+                            },
+                            "defaultView": {
+                                "yaw": 0,
+                                "pitch": 0
+                            },
+                            "hotspots": [
+                                {
+                                    "id": "hs-3",
+                                    "db_id": 3,
+                                    "yaw": 99.8,
+                                    "pitch": -33.2,
+                                    "tooltip": "Đến 外観2 2",
+                                    "targetPanorama": "ext-2",
+                                    "target_panorama_id": 2
+                                },
+                                {
+                                    "id": "hs-5",
+                                    "db_id": 5,
+                                    "yaw": -108.3,
+                                    "pitch": 48.4,
+                                    "tooltip": null,
+                                    "targetPanorama": "ext-3",
+                                    "target_panorama_id": 3
+                                },
+                                {
+                                    "id": "hs-6",
+                                    "db_id": 6,
+                                    "yaw": 0,
+                                    "pitch": 0,
+                                    "tooltip": null,
+                                    "targetPanorama": "ext-4",
+                                    "target_panorama_id": 4
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ext-2",
+                            "db_id": 2,
+                            "name": "新1号館外観(南面)",
+                            "code": "南面",
+                            "number": 2,
+                            "label": "新1号館外観(南面)",
+                            "thumbnail": "/images/pana2.jpg",
+                            "url": "/images/pana2.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 49,
+                                "y": 52,
+                                "angle": -20
+                            },
+                            "defaultView": {
+                                "yaw": 30,
+                                "pitch": 0
+                            },
+                            "hotspots": [
+                                {
+                                    "id": "hs-2",
+                                    "db_id": 2,
+                                    "yaw": -70.1,
+                                    "pitch": 16.5,
+                                    "tooltip": "Về 1",
+                                    "targetPanorama": "ext-1",
+                                    "target_panorama_id": 1
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ext-3",
+                            "db_id": 3,
+                            "name": "メディカルデッキ外観(東面)",
+                            "code": "東面",
+                            "number": 3,
+                            "label": "メディカルデッキ外観(東面)",
+                            "thumbnail": "/images/pana3.jpg",
+                            "url": "/images/pana3.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 38,
+                                "y": 38.5,
+                                "angle": 45
+                            },
+                            "defaultView": {
+                                "yaw": 90,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "ext-4",
+                            "db_id": 4,
+                            "name": "メディカルデッキ外観(西面)",
+                            "code": "西面",
+                            "number": 4,
+                            "label": "メディカルデッキ外観(西面)",
+                            "thumbnail": "/images/pana4.jpg",
+                            "url": "/images/pana4.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 58.5,
+                                "y": 24,
+                                "angle": 135
+                            },
+                            "defaultView": {
+                                "yaw": 180,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "ext-5",
+                            "db_id": 5,
+                            "name": "新1号館外観(南東面)",
+                            "code": "南東面",
+                            "number": 5,
+                            "label": "新1号館外観(南東面)",
+                            "thumbnail": "/images/pana1.jpg",
+                            "url": "/images/pana1.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 74,
+                                "y": 44,
+                                "angle": -85
+                            },
+                            "defaultView": {
+                                "yaw": 0,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "ext-6",
+                            "db_id": 6,
+                            "name": "キャンパス全体俯瞰",
+                            "code": "俯瞰",
+                            "number": 6,
+                            "label": "キャンパス全体俯瞰",
+                            "thumbnail": "/images/pana2.jpg",
+                            "url": "/images/pana2.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 55.3,
+                                "y": 39.8,
+                                "angle": 40
+                            },
+                            "defaultView": {
+                                "yaw": 45,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        }
+                    ]
+                },
+                {
+                    "id": "medical-deck",
+                    "db_id": 2,
+                    "name": "メディカルデッキ",
+                    "type": "single",
+                    "description": null,
+                    "planImage": "/maps/floor1.jpg",
+                    "videos": [
+                        {
+                            "id": "video-5",
+                            "db_id": 5,
+                            "title": "ムービー 1",
+                            "label": "トラックヤード",
+                            "description": "Khu vực sân xe tải",
+                            "thumbnail": "/images/pana1.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                        },
+                        {
+                            "id": "video-6",
+                            "db_id": 6,
+                            "title": "ムービー 2",
+                            "label": "エントランス・ロビー",
+                            "description": "Sảnh đón tiếp",
+                            "thumbnail": "/images/pana2.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        },
+                        {
+                            "id": "video-7",
+                            "db_id": 7,
+                            "title": "ムービー 4",
+                            "label": "物流倉庫保管エリア",
+                            "description": "Khu vực kho chứa",
+                            "thumbnail": "/images/pana3.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                        },
+                        {
+                            "id": "video-8",
+                            "db_id": 8,
+                            "title": "ムービー 5",
+                            "label": "屋上庭園・テラス",
+                            "description": "Sân thượng Rooftop",
+                            "thumbnail": "/images/pana4.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                        }
+                    ],
+                    "panoramas": [
+                        {
+                            "id": "med-1",
+                            "db_id": 7,
+                            "name": "新1号館外観(南西面)",
+                            "code": "南西面",
+                            "number": 1,
+                            "label": "新1号館外観(南西面)",
+                            "thumbnail": "/images/pana1.jpg",
+                            "url": "/images/pana1.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 35,
+                                "y": 22,
+                                "angle": 90
+                            },
+                            "defaultView": {
+                                "yaw": 0,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "med-2",
+                            "db_id": 8,
+                            "name": "メディカルデッキ外観(東面)",
+                            "code": "東面",
+                            "number": 2,
+                            "label": "メディカルデッキ外観(東面)",
+                            "thumbnail": "/images/pana2.jpg",
+                            "url": "/images/pana2.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 52,
+                                "y": 28,
+                                "angle": 0
+                            },
+                            "defaultView": {
+                                "yaw": 45,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "med-3",
+                            "db_id": 9,
+                            "name": "新1号館外観(南面)",
+                            "code": "南面",
+                            "number": 3,
+                            "label": "新1号館外観(南面)",
+                            "thumbnail": "/images/pana3.jpg",
+                            "url": "/images/pana3.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 50,
+                                "y": 38,
+                                "angle": -90
+                            },
+                            "defaultView": {
+                                "yaw": 90,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "med-4",
+                            "db_id": 10,
+                            "name": "新1号館外観(南東面)",
+                            "code": "南東面",
+                            "number": 4,
+                            "label": "新1号館外観(南東面)",
+                            "thumbnail": "/images/pana4.jpg",
+                            "url": "/images/pana4.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 68,
+                                "y": 40,
+                                "angle": 180
+                            },
+                            "defaultView": {
+                                "yaw": 180,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "med-5",
+                            "db_id": 11,
+                            "name": "1階カフェ待合棟",
+                            "code": "カフェ",
+                            "number": 5,
+                            "label": "1階カフェ待合棟",
+                            "thumbnail": "/images/pana1.jpg",
+                            "url": "/images/pana1.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 38,
+                                "y": 62,
+                                "angle": 0
+                            },
+                            "defaultView": {
+                                "yaw": 0,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "med-6",
+                            "db_id": 12,
+                            "name": "メディカルデッキ エントランス",
+                            "code": "エントランス",
+                            "number": 6,
+                            "label": "メディカルデッキ エントランス",
+                            "thumbnail": "/images/pana2.jpg",
+                            "url": "/images/pana2.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 50,
+                                "y": 78,
+                                "angle": -45
+                            },
+                            "defaultView": {
+                                "yaw": 45,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        }
+                    ]
+                },
+                {
+                    "id": "cafe",
+                    "db_id": 3,
+                    "name": "カフェ・待合棟",
+                    "type": "single",
+                    "description": null,
+                    "planImage": "/maps/floor2.jpg",
+                    "videos": [
+                        {
+                            "id": "video-9",
+                            "db_id": 9,
+                            "title": "ムービー 1",
+                            "label": "トラックヤード",
+                            "description": "Khu vực sân xe tải",
+                            "thumbnail": "/images/pana1.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                        },
+                        {
+                            "id": "video-10",
+                            "db_id": 10,
+                            "title": "ムービー 2",
+                            "label": "エントランス・ロビー",
+                            "description": "Sảnh đón tiếp",
+                            "thumbnail": "/images/pana2.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        },
+                        {
+                            "id": "video-11",
+                            "db_id": 11,
+                            "title": "ムービー 4",
+                            "label": "物流倉庫保管エリア",
+                            "description": "Khu vực kho chứa",
+                            "thumbnail": "/images/pana3.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                        },
+                        {
+                            "id": "video-12",
+                            "db_id": 12,
+                            "title": "ムービー 5",
+                            "label": "屋上庭園・テラス",
+                            "description": "Sân thượng Rooftop",
+                            "thumbnail": "/images/pana4.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                        }
+                    ],
+                    "panoramas": [
+                        {
+                            "id": "cafe-1",
+                            "db_id": 13,
+                            "name": "カフェ外観",
+                            "code": "外観",
+                            "number": 1,
+                            "label": "カフェ外観",
+                            "thumbnail": "/images/pana3.jpg",
+                            "url": "/images/pana3.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 45,
+                                "y": 45,
+                                "angle": 0
+                            },
+                            "defaultView": {
+                                "yaw": 0,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        },
+                        {
+                            "id": "cafe-2",
+                            "db_id": 14,
+                            "name": "待合ロビー",
+                            "code": "ロビー",
+                            "number": 2,
+                            "label": "待合ロビー",
+                            "thumbnail": "/images/pana4.jpg",
+                            "url": "/images/pana4.jpg",
+                            "extraImages": [],
+                            "extra_images": [],
+                            "mapPosition": {
+                                "x": 55,
+                                "y": 60,
+                                "angle": 90
+                            },
+                            "defaultView": {
+                                "yaw": 90,
+                                "pitch": 0
+                            },
+                            "hotspots": []
+                        }
+                    ]
+                },
+                {
+                    "id": "new1",
+                    "db_id": 4,
+                    "name": "新1号館",
+                    "type": "group",
+                    "description": null,
+                    "planImage": null,
+                    "videos": [
+                        {
+                            "id": "video-13",
+                            "db_id": 13,
+                            "title": "ムービー 1",
+                            "label": "トラックヤード",
+                            "description": "Khu vực sân xe tải",
+                            "thumbnail": "/images/pana1.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                        },
+                        {
+                            "id": "video-14",
+                            "db_id": 14,
+                            "title": "ムービー 2",
+                            "label": "エントランス・ロビー",
+                            "description": "Sảnh đón tiếp",
+                            "thumbnail": "/images/pana2.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        },
+                        {
+                            "id": "video-15",
+                            "db_id": 15,
+                            "title": "ムービー 4",
+                            "label": "物流倉庫保管エリア",
+                            "description": "Khu vực kho chứa",
+                            "thumbnail": "/images/pana3.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                        },
+                        {
+                            "id": "video-16",
+                            "db_id": 16,
+                            "title": "ムービー 5",
+                            "label": "屋上庭園・テラス",
+                            "description": "Sân thượng Rooftop",
+                            "thumbnail": "/images/pana4.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                        }
+                    ],
+                    "floors": [
+                        {
+                            "id": "new1-b1",
+                            "db_id": 1,
+                            "name": "B1階",
+                            "shortLabel": "B1",
+                            "description": null,
+                            "planImage": "http://pano-admin.test/storage/floor-plans/01M1489M4927FHJFVY5JKXZ82R.jpg",
+                            "videos": [
+                                {
+                                    "id": "video-17",
+                                    "db_id": 17,
+                                    "title": "ムービー 1",
+                                    "label": "トラックヤード",
+                                    "description": "Khu vực sân xe tải",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                                },
+                                {
+                                    "id": "video-18",
+                                    "db_id": 18,
+                                    "title": "ムービー 2",
+                                    "label": "エントランス・ロビー",
+                                    "description": "Sảnh đón tiếp",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                },
+                                {
+                                    "id": "video-19",
+                                    "db_id": 19,
+                                    "title": "ムービー 4",
+                                    "label": "物流倉庫保管エリア",
+                                    "description": "Khu vực kho chứa",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                                },
+                                {
+                                    "id": "video-20",
+                                    "db_id": 20,
+                                    "title": "ムービー 5",
+                                    "label": "屋上庭園・テラス",
+                                    "description": "Sân thượng Rooftop",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                                }
+                            ],
+                            "panoramas": [
+                                {
+                                    "id": "b1-1",
+                                    "db_id": 15,
+                                    "name": "B1 廊下",
+                                    "code": "B1-1",
+                                    "number": 1,
+                                    "label": "B1 廊下",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "url": "/images/pana1.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 16.8,
+                                        "y": 38.3,
+                                        "angle": 90
+                                    },
+                                    "defaultView": {
+                                        "yaw": 0,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                },
+                                {
+                                    "id": "b1-2",
+                                    "db_id": 16,
+                                    "name": "B1 駐車場",
+                                    "code": "B1-2",
+                                    "number": 2,
+                                    "label": "B1 駐車場",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "url": "/images/pana2.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 61.9,
+                                        "y": 80.1,
+                                        "angle": 90
+                                    },
+                                    "defaultView": {
+                                        "yaw": 45,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "new1-1f",
+                            "db_id": 2,
+                            "name": "1階",
+                            "shortLabel": "1F",
+                            "description": null,
+                            "planImage": "/maps/floor1.jpg",
+                            "videos": [
+                                {
+                                    "id": "video-21",
+                                    "db_id": 21,
+                                    "title": "ムービー 1",
+                                    "label": "トラックヤード",
+                                    "description": "Khu vực sân xe tải",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                                },
+                                {
+                                    "id": "video-22",
+                                    "db_id": 22,
+                                    "title": "ムービー 2",
+                                    "label": "エントランス・ロビー",
+                                    "description": "Sảnh đón tiếp",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                },
+                                {
+                                    "id": "video-23",
+                                    "db_id": 23,
+                                    "title": "ムービー 4",
+                                    "label": "物流倉庫保管エリア",
+                                    "description": "Khu vực kho chứa",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                                },
+                                {
+                                    "id": "video-24",
+                                    "db_id": 24,
+                                    "title": "ムービー 5",
+                                    "label": "屋上庭園・テラス",
+                                    "description": "Sân thượng Rooftop",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                                }
+                            ],
+                            "panoramas": [
+                                {
+                                    "id": "1f-1",
+                                    "db_id": 17,
+                                    "name": "1階 エントランス",
+                                    "code": "1F-1",
+                                    "number": 1,
+                                    "label": "1階 エントランス",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "url": "/images/pana1.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 26,
+                                        "y": 55,
+                                        "angle": 90
+                                    },
+                                    "defaultView": {
+                                        "yaw": 0,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                },
+                                {
+                                    "id": "1f-2",
+                                    "db_id": 18,
+                                    "name": "1階 ロビー",
+                                    "code": "1F-2",
+                                    "number": 2,
+                                    "label": "1階 ロビー",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "url": "/images/pana2.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 50,
+                                        "y": 55,
+                                        "angle": 0
+                                    },
+                                    "defaultView": {
+                                        "yaw": 45,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "new1-2f",
+                            "db_id": 3,
+                            "name": "2階",
+                            "shortLabel": "2F",
+                            "description": null,
+                            "planImage": "/maps/floor2.jpg",
+                            "videos": [
+                                {
+                                    "id": "video-25",
+                                    "db_id": 25,
+                                    "title": "ムービー 1",
+                                    "label": "トラックヤード",
+                                    "description": "Khu vực sân xe tải",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                                },
+                                {
+                                    "id": "video-26",
+                                    "db_id": 26,
+                                    "title": "ムービー 2",
+                                    "label": "エントランス・ロビー",
+                                    "description": "Sảnh đón tiếp",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                },
+                                {
+                                    "id": "video-27",
+                                    "db_id": 27,
+                                    "title": "ムービー 4",
+                                    "label": "物流倉庫保管エリア",
+                                    "description": "Khu vực kho chứa",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                                },
+                                {
+                                    "id": "video-28",
+                                    "db_id": 28,
+                                    "title": "ムービー 5",
+                                    "label": "屋上庭園・テラス",
+                                    "description": "Sân thượng Rooftop",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                                }
+                            ],
+                            "panoramas": [
+                                {
+                                    "id": "2f-1",
+                                    "db_id": 19,
+                                    "name": "2階 病棟",
+                                    "code": "2F-1",
+                                    "number": 1,
+                                    "label": "2階 病棟",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "url": "/images/pana3.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 35,
+                                        "y": 45,
+                                        "angle": 0
+                                    },
+                                    "defaultView": {
+                                        "yaw": 0,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "new1-3f",
+                            "db_id": 4,
+                            "name": "3階",
+                            "shortLabel": "3F",
+                            "description": null,
+                            "planImage": "/maps/floor3.jpg",
+                            "videos": [
+                                {
+                                    "id": "video-29",
+                                    "db_id": 29,
+                                    "title": "ムービー 1",
+                                    "label": "トラックヤード",
+                                    "description": "Khu vực sân xe tải",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                                },
+                                {
+                                    "id": "video-30",
+                                    "db_id": 30,
+                                    "title": "ムービー 2",
+                                    "label": "エントランス・ロビー",
+                                    "description": "Sảnh đón tiếp",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                },
+                                {
+                                    "id": "video-31",
+                                    "db_id": 31,
+                                    "title": "ムービー 4",
+                                    "label": "物流倉庫保管エリア",
+                                    "description": "Khu vực kho chứa",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                                },
+                                {
+                                    "id": "video-32",
+                                    "db_id": 32,
+                                    "title": "ムービー 5",
+                                    "label": "屋上庭園・テラス",
+                                    "description": "Sân thượng Rooftop",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                                }
+                            ],
+                            "panoramas": [
+                                {
+                                    "id": "3f-1",
+                                    "db_id": 20,
+                                    "name": "3階 病棟",
+                                    "code": "3F-1",
+                                    "number": 1,
+                                    "label": "3階 病棟",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "url": "/images/pana4.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 40,
+                                        "y": 50,
+                                        "angle": 0
+                                    },
+                                    "defaultView": {
+                                        "yaw": 0,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": "new1-5f",
+                            "db_id": 5,
+                            "name": "5階",
+                            "shortLabel": "5F",
+                            "description": null,
+                            "planImage": "/maps/floor3.jpg",
+                            "videos": [
+                                {
+                                    "id": "video-33",
+                                    "db_id": 33,
+                                    "title": "ムービー 1",
+                                    "label": "トラックヤード",
+                                    "description": "Khu vực sân xe tải",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                                },
+                                {
+                                    "id": "video-34",
+                                    "db_id": 34,
+                                    "title": "ムービー 2",
+                                    "label": "エントランス・ロビー",
+                                    "description": "Sảnh đón tiếp",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                },
+                                {
+                                    "id": "video-35",
+                                    "db_id": 35,
+                                    "title": "ムービー 4",
+                                    "label": "物流倉庫保管エリア",
+                                    "description": "Khu vực kho chứa",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                                },
+                                {
+                                    "id": "video-36",
+                                    "db_id": 36,
+                                    "title": "ムービー 5",
+                                    "label": "屋上庭園・テラス",
+                                    "description": "Sân thượng Rooftop",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                                }
+                            ],
+                            "panoramas": [
+                                {
+                                    "id": "5f-1",
+                                    "db_id": 21,
+                                    "name": "5階教授室等廊下",
+                                    "code": "5F-1",
+                                    "number": 1,
+                                    "label": "5階教授室等廊下",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "url": "/images/pana1.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 60,
+                                        "y": 32,
+                                        "angle": 90
+                                    },
+                                    "defaultView": {
+                                        "yaw": 0,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                },
+                                {
+                                    "id": "5f-2",
+                                    "db_id": 22,
+                                    "name": "5階教授室等",
+                                    "code": "5F-2",
+                                    "number": 2,
+                                    "label": "5階教授室等",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "url": "/images/pana2.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 64,
+                                        "y": 52,
+                                        "angle": 0
+                                    },
+                                    "defaultView": {
+                                        "yaw": 45,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                },
+                                {
+                                    "id": "5f-3",
+                                    "db_id": 23,
+                                    "name": "新1号館外観(南西面)",
+                                    "code": "南西面",
+                                    "number": 3,
+                                    "label": "新1号館外観(南西面)",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "url": "/images/pana3.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 19,
+                                        "y": 92,
+                                        "angle": 180
+                                    },
+                                    "defaultView": {
+                                        "yaw": 90,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                },
+                                {
+                                    "id": "5f-4",
+                                    "db_id": 24,
+                                    "name": "メディカルデッキ外観(南面)",
+                                    "code": "南面",
+                                    "number": 4,
+                                    "label": "メディカルデッキ外観(南面)",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "url": "/images/pana4.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 52,
+                                        "y": 94,
+                                        "angle": 0
+                                    },
+                                    "defaultView": {
+                                        "yaw": 180,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                },
+                                {
+                                    "id": "5f-5",
+                                    "db_id": 25,
+                                    "name": "新1号館外観(南東面)",
+                                    "code": "南東面",
+                                    "number": 5,
+                                    "label": "新1号館外観(南東面)",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "url": "/images/pana1.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 73,
+                                        "y": 94,
+                                        "angle": 0
+                                    },
+                                    "defaultView": {
+                                        "yaw": 0,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "globe3-building-1-default",
+                    "db_id": 9,
+                    "name": "Default Building",
+                    "type": "group",
+                    "description": null,
+                    "planImage": null,
+                    "videos": [],
+                    "floors": [
+                        {
+                            "id": "new1-6f",
+                            "db_id": 6,
+                            "name": "6階",
+                            "shortLabel": "6F",
+                            "description": null,
+                            "planImage": "/maps/floor2.jpg",
+                            "videos": [
+                                {
+                                    "id": "video-37",
+                                    "db_id": 37,
+                                    "title": "ムービー 1",
+                                    "label": "トラックヤード",
+                                    "description": "Khu vực sân xe tải",
+                                    "thumbnail": "/images/pana1.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                                },
+                                {
+                                    "id": "video-38",
+                                    "db_id": 38,
+                                    "title": "ムービー 2",
+                                    "label": "エントランス・ロビー",
+                                    "description": "Sảnh đón tiếp",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                },
+                                {
+                                    "id": "video-39",
+                                    "db_id": 39,
+                                    "title": "ムービー 4",
+                                    "label": "物流倉庫保管エリア",
+                                    "description": "Khu vực kho chứa",
+                                    "thumbnail": "/images/pana3.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                                },
+                                {
+                                    "id": "video-40",
+                                    "db_id": 40,
+                                    "title": "ムービー 5",
+                                    "label": "屋上庭園・テラス",
+                                    "description": "Sân thượng Rooftop",
+                                    "thumbnail": "/images/pana4.jpg",
+                                    "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                                }
+                            ],
+                            "panoramas": [
+                                {
+                                    "id": "6f-1",
+                                    "db_id": 26,
+                                    "name": "6階 講義室",
+                                    "code": "6F-1",
+                                    "number": 1,
+                                    "label": "6階 講義室",
+                                    "thumbnail": "/images/pana2.jpg",
+                                    "url": "/images/pana2.jpg",
+                                    "extraImages": [],
+                                    "extra_images": [],
+                                    "mapPosition": {
+                                        "x": 45,
+                                        "y": 50,
+                                        "angle": 0
+                                    },
+                                    "defaultView": {
+                                        "yaw": 0,
+                                        "pitch": 0
+                                    },
+                                    "hotspots": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "project-2",
+            "db_id": 2,
+            "name": "Project 2 - Demo",
+            "description": null,
+            "thumbnail": null,
+            "buildings": [
+                {
+                    "id": "exterior",
+                    "db_id": 5,
+                    "name": "外構",
+                    "type": "single",
+                    "description": null,
+                    "planImage": "/maps/exterior.jpg",
+                    "videos": [
+                        {
+                            "id": "video-41",
+                            "db_id": 41,
+                            "title": "ムービー 1",
+                            "label": "トラックヤード",
+                            "description": "Khu vực sân xe tải",
+                            "thumbnail": "/images/pana1.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                        },
+                        {
+                            "id": "video-42",
+                            "db_id": 42,
+                            "title": "ムービー 2",
+                            "label": "エントランス・ロビー",
+                            "description": "Sảnh đón tiếp",
+                            "thumbnail": "/images/pana2.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        },
+                        {
+                            "id": "video-43",
+                            "db_id": 43,
+                            "title": "ムービー 4",
+                            "label": "物流倉庫保管エリア",
+                            "description": "Khu vực kho chứa",
+                            "thumbnail": "/images/pana3.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                        },
+                        {
+                            "id": "video-44",
+                            "db_id": 44,
+                            "title": "ムービー 5",
+                            "label": "屋上庭園・テラス",
+                            "description": "Sân thượng Rooftop",
+                            "thumbnail": "/images/pana4.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                        }
+                    ],
+                    "panoramas": []
+                }
+            ]
+        },
+        {
+            "id": "project-3",
+            "db_id": 3,
+            "name": "Project 3 - Sample",
+            "description": null,
+            "thumbnail": null,
+            "buildings": [
+                {
+                    "id": "exterior",
+                    "db_id": 6,
+                    "name": "外構",
+                    "type": "single",
+                    "description": null,
+                    "planImage": "/maps/exterior.jpg",
+                    "videos": [
+                        {
+                            "id": "video-45",
+                            "db_id": 45,
+                            "title": "ムービー 1",
+                            "label": "トラックヤード",
+                            "description": "Khu vực sân xe tải",
+                            "thumbnail": "/images/pana1.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+                        },
+                        {
+                            "id": "video-46",
+                            "db_id": 46,
+                            "title": "ムービー 2",
+                            "label": "エントランス・ロビー",
+                            "description": "Sảnh đón tiếp",
+                            "thumbnail": "/images/pana2.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        },
+                        {
+                            "id": "video-47",
+                            "db_id": 47,
+                            "title": "ムービー 4",
+                            "label": "物流倉庫保管エリア",
+                            "description": "Khu vực kho chứa",
+                            "thumbnail": "/images/pana3.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+                        },
+                        {
+                            "id": "video-48",
+                            "db_id": 48,
+                            "title": "ムービー 5",
+                            "label": "屋上庭園・テラス",
+                            "description": "Sân thượng Rooftop",
+                            "thumbnail": "/images/pana4.jpg",
+                            "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+                        }
+                    ],
+                    "panoramas": []
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "total_projects": 3
+    }
+}

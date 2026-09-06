@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-const SESSION_TIMEOUT_MS = 10 * 60 * 1000; // 10 phút
+const SESSION_TIMEOUT_MS = 60 * 60 * 1000; // 1 tiếng
 
 export function useAuth() {
   const [user, setUser] = useState(() => {
@@ -43,7 +43,7 @@ export function useAuth() {
     localStorage.removeItem("pano_last_active");
   };
 
-  // Session 10 phút: tự logout nếu không thao tác, reset khi có mousemove/keydown/click/scroll/touch
+  // Session 1 tiếng: tự logout nếu không thao tác, reset khi có mousemove/keydown/click/scroll/touch
   useEffect(() => {
     if (!user) return;
 
