@@ -28,6 +28,8 @@ export default function FloorMap({ floor, building, activePanaroma, onSelectPana
               <line x1="21" y1="21" x2="16.5" y2="16.5" />
             </svg>
           </button>
+          {/* Map view không có nút cảm biến trong slot - giữ chừa chỗ trống cho đều cột */}
+          <span className="mm-ctrl-btn gyro-placeholder" aria-hidden="true" />
           {onLogout && (
             <button className="mm-ctrl-btn" onClick={onLogout} title="Logout">
               <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">

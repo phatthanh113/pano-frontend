@@ -63,6 +63,14 @@
   font-size: 24px;
   line-height: 1;
 }
+/* PC: placeholder chừa khoảng trống thay nút cảm biến, Logout vẫn nằm dưới */
+.pano-unified-minimap-wrap .mm-ctrl-btn.gyro-placeholder {
+  background: transparent;
+  box-shadow: none;
+}
+.pano-unified-minimap-wrap .mm-ctrl-btn.gyro-placeholder:hover {
+  background: transparent;
+}
 .pano-unified-minimap-wrap .mm-ctrl-btn.gyro-btn.active {
   background: #2563eb;
 }

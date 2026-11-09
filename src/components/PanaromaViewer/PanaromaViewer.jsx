@@ -335,7 +335,7 @@ export default function PanaromaViewer({ panaroma, floor, onHotspotClick, onSele
                 <line x1="21" y1="21" x2="16.5" y2="16.5" />
               </svg>
             </button>
-            {gyroSupported && isMobileDevice && (
+            {gyroSupported && isMobileDevice ? (
               <button
                 className={`mm-ctrl-btn gyro-btn ${gyroOn ? "active" : ""}`}
                 onClick={handleToggleGyro}
@@ -343,6 +343,9 @@ export default function PanaromaViewer({ panaroma, floor, onHotspotClick, onSele
               >
                 🧭
               </button>
+            ) : (
+              /* PC: chừa chỗ trống đúng size nút, giữ Logout ở dưới nó */
+              <span className="mm-ctrl-btn gyro-placeholder" aria-hidden="true" />
             )}
             {onLogout && (
               <button className="mm-ctrl-btn" onClick={onLogout} title="Logout">
