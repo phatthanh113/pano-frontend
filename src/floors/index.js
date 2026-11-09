@@ -2,7 +2,7 @@
  * floors/index.js
  * ---------------
  * - Import dữ liệu từ floorsData.js (thay bằng API call khi có backend).
- * - Cung cấp helper: getFloorById, findPanoramaById.
+ * - Cung cấp helper: getFloorById, findPanaromaById.
  *
  * === Khi tích hợp Database / API ===
  * Thay dòng import dưới bằng:
@@ -14,7 +14,7 @@
  */
 
 import floorsData from "./floorsData";
-import { buildings, findPanoramaById as findPanoramaByIdNew } from "../buildings";
+import { buildings, findPanaromaById as findPanaromaByIdNew } from "../buildings";
 
 export const floors = floorsData;
 
@@ -22,14 +22,14 @@ export const floors = floorsData;
 export const getFloorById = (floorId) =>
   floors.find((f) => f.id === floorId) || floors[0];
 
-/** Tìm panorama trong toàn bộ các tầng, trả về { floor, panorama } */
-export const findPanoramaById = (panoramaId) => {
+/** Tìm panaroma trong toàn bộ các tầng, trả về { floor, panaroma } */
+export const findPanaromaById = (panaromaId) => {
   // ưu tiên buildings mới (đúng Ảnh 1)
-  const foundNew = findPanoramaByIdNew(panoramaId);
-  if (foundNew) return { floor: foundNew.floor, panorama: foundNew.panorama, building: foundNew.building };
+  const foundNew = findPanaromaByIdNew(panaromaId);
+  if (foundNew) return { floor: foundNew.floor, panaroma: foundNew.panaroma, building: foundNew.building };
   for (const floor of floors) {
-    const panorama = floor.panoramas.find((p) => p.id === panoramaId);
-    if (panorama) return { floor, panorama };
+    const panaroma = floor.panaromas.find((p) => p.id === panaromaId);
+    if (panaroma) return { floor, panaroma };
   }
   return null;
 };

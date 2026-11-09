@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-
-const SESSION_TIMEOUT_MS = 60 * 60 * 1000; // 1 tiếng
+import { buildUrl, getCsrfCookie, getXsrfToken } from "../api/client";
 
 export function useAuth() {
   const [user, setUser] = useState(() => {
@@ -10,17 +9,22 @@ export function useAuth() {
 
   const checkMe = useCallback(async () => {
     try {
-      const res = await fetch("/api/auth/me", { credentials: "include", headers: { Accept: "application/json" } });
+      const token = getXsrfToken();
+      const res = await fetch(buildUrl("/api/auth/me"), {
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          ...(token ? { "X-XSRF-TOKEN": token } : {}),
+        },
+      });
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
         localStorage.setItem("pano_user", JSON.stringify(data.user));
-        localStorage.setItem("pano_last_active", String(Date.now()));
         return;
       }
       setUser(null);
       localStorage.removeItem("pano_user");
-      localStorage.removeItem("pano_last_active");
     } catch {
       // offline fallback giữ user local
     } finally {
@@ -33,58 +37,26 @@ export function useAuth() {
   const login = (u) => {
     setUser(u);
     localStorage.setItem("pano_user", JSON.stringify(u));
-    localStorage.setItem("pano_last_active", String(Date.now()));
   };
 
   const logout = async () => {
-    try { await fetch("/api/auth/logout", { method: "POST", credentials: "include", headers: { Accept: "application/json" } }); } catch {}
+    try {
+      await getCsrfCookie();
+      const token = getXsrfToken();
+      await fetch(buildUrl("/api/auth/logout"), {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          ...(token ? { "X-XSRF-TOKEN": token } : {}),
+        },
+      });
+    } catch {
+      // offline: bỏ qua lỗi gọi API logout
+    }
     setUser(null);
     localStorage.removeItem("pano_user");
-    localStorage.removeItem("pano_last_active");
   };
-
-  // Session 1 tiếng: tự logout nếu không thao tác, reset khi có mousemove/keydown/click/scroll/touch
-  useEffect(() => {
-    if (!user) return;
-
-    const isExpired = () => {
-      const last = parseInt(localStorage.getItem("pano_last_active") || "0", 10);
-      return last && Date.now() - last > SESSION_TIMEOUT_MS;
-    };
-
-    // check ngay khi mount
-    if (isExpired()) {
-      logout();
-      return;
-    }
-
-    let timer;
-    const resetTimer = () => {
-      localStorage.setItem("pano_last_active", String(Date.now()));
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        if (isExpired()) logout();
-      }, SESSION_TIMEOUT_MS);
-    };
-
-    const events = ["mousemove", "mousedown", "keydown", "scroll", "touchstart", "click"];
-    const handleActivity = () => resetTimer();
-
-    // khởi timer
-    resetTimer();
-    events.forEach((ev) => window.addEventListener(ev, handleActivity, { passive: true }));
-
-    // kiểm tra định kỳ mỗi 30s phòng khi tab ẩn
-    const interval = setInterval(() => {
-      if (isExpired()) logout();
-    }, 30000);
-
-    return () => {
-      clearTimeout(timer);
-      clearInterval(interval);
-      events.forEach((ev) => window.removeEventListener(ev, handleActivity));
-    };
-  }, [user]);
 
   return { user, loading, login, logout, checkMe };
 }

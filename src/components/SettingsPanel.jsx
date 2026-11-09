@@ -21,15 +21,15 @@ export default function SettingsPanel({ isOpen, onClose }) {
         break;
       case "open-video":
         // TODO: Implement video modal
-        alert("Mở video");
+        alert("Open video");
         break;
       case "open-floorplan":
         // TODO: Implement floorplan modal
-        alert("Mở sơ đồ");
+        alert("Open floor plan");
         break;
       case "open-contact":
         // TODO: Implement contact modal
-        alert("Liên hệ: 0123 456 789");
+        alert("Contact: 0123 456 789");
         break;
       case "open-website":
         if (item.url) {

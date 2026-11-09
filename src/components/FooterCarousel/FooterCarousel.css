@@ -9,6 +9,8 @@
   align-items: center;
   z-index: 40;
   pointer-events: none;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
 }
 .footer-wrap > * { pointer-events: auto; }
 
@@ -61,11 +63,14 @@
 }
 
 .carousel-nav-circle-btn:hover { background: #c0c0c0; }
+.carousel-nav-circle-btn:disabled { opacity: 0.45; cursor: default; }
+.carousel-nav-circle-btn:disabled:hover { background: #d0d0d0; }
 
 .carousel-track {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
   overflow-x: auto;
   padding: 2px;
   scroll-behavior: smooth;
@@ -75,7 +80,7 @@
 
 .carousel-card {
   flex: 0 0 auto;
-  width: 148px;
+  width: 135px;
   background: #fff;
   border: 1px solid #222;
   overflow: hidden;
@@ -94,7 +99,7 @@
 
 .card-thumb-wrapper {
   width: 100%;
-  height: 72px;
+  height: 60px;
   background: #eee;
   overflow: hidden;
 }
@@ -126,14 +131,16 @@
 }
 
 @media (max-width: 768px) {
-  .footer-carousel-container { max-width: calc(100vw - 16px); gap: 6px; padding-bottom: 2px; }
-  .carousel-track { gap: 6px; }
-  .carousel-card { width: 96px; }
+  .footer-carousel-container { max-width: calc(100vw - 12px); width: calc(100vw - 12px); gap: 6px; padding-bottom: 2px; box-sizing: border-box; }
+  .carousel-track { gap: 6px; flex: 1; min-width: 0; }
+  .carousel-card { width: 86px; }
   .card-thumb-wrapper { height: 48px; }
   .card-title-text { font-size: 8px; }
-  .carousel-nav-circle-btn { width: 24px; height: 24px; }
+  .carousel-nav-circle-btn { width: 24px; height: 24px; flex-shrink: 0; }
 }
 @media (max-width: 480px) {
-  .carousel-card { width: 84px; }
+  .footer-carousel-container { max-width: calc(100vw - 8px); width: calc(100vw - 8px); gap: 4px; }
+  .carousel-card { width: 74px; }
   .card-thumb-wrapper { height: 42px; }
+  .carousel-track { gap: 4px; }
 }

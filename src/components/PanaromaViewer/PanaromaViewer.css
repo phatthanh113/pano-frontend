@@ -1,8 +1,9 @@
-/* ===== Panorama Viewer Container ===== */
-.panorama-viewer-container {
+/* ===== Panaroma Viewer Container ===== */
+.panaroma-viewer-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
   overflow: hidden;
   background: #0a0a0a;
   font-family: Arial, sans-serif;
@@ -28,14 +29,15 @@
 }
 
 
-/* ===== Unified Minimap in Panorama (thay thế MiniMap cũ - Image2 thay Image3) ===== */
+/* ===== Unified Minimap in Panaroma (thay thế MiniMap cũ - Image2 thay Image3) ===== */
 .pano-unified-minimap-wrap {
   position: absolute;
-  top: 44px;
+  top: 52px;
   right: 8px;
   z-index: 45;
   display: flex;
-  gap: 6px;
+  gap: 8px;
+  /* Cột nút («/🧭/Logout) đứng im khi minimap phóng to (logic cũ) */
   align-items: flex-start;
 }
 .pano-unified-minimap-wrap .mm-ctrls {
@@ -44,8 +46,8 @@
   gap: 6px;
 }
 .pano-unified-minimap-wrap .mm-ctrl-btn {
-  width: 26px;
-  height: 26px;
+  width: 60px;
+  height: 50px;
   background: #5a5a5a;
   color: #fff;
   border: none;
@@ -56,6 +58,25 @@
 }
 .pano-unified-minimap-wrap .mm-ctrl-btn:hover { background: #6e6e6e; }
 
+/* Nút cảm biến xoay (chỉ mobile/tablet) - trạng thái đang bật */
+.pano-unified-minimap-wrap .mm-ctrl-btn.gyro-btn {
+  font-size: 24px;
+  line-height: 1;
+}
+.pano-unified-minimap-wrap .mm-ctrl-btn.gyro-btn.active {
+  background: #2563eb;
+}
+.pano-unified-minimap-wrap .mm-ctrl-btn.active {
+  background: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.45);
+}
+.bottom-tool-btn.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
+}
+
 /* ===== Scene Wrapper — Zoom Transition ===== */
 .pano-scene-wrapper {
   position: absolute;
@@ -64,6 +85,12 @@
   transform-origin: center center;
   will-change: transform, opacity;
   background: transparent;
+  height: 100%;
+}
+.pano-scene-wrapper > div,
+.pano-scene-wrapper .psv-container {
+  height: 100% !important;
+  width: 100% !important;
 }
 
 /* Phase: idle — no transform */
@@ -74,7 +101,7 @@
 
 /* Phase: out — chỉ fade (viewer đã tự zoom vào hotspot bằng animate) */
 .pano-scene-out {
-  animation: scene-zoom-out 0.35s ease-in forwards;
+  animation: scene-zoom-out 0.22s ease-in forwards;
 }
 
 @keyframes scene-zoom-out {
@@ -91,7 +118,7 @@
 
 /* Phase: in — new scene arrives với kích thước thật (chỉ fade, không scale) */
 .pano-scene-in {
-  animation: scene-zoom-in 0.45s ease-out forwards;
+  animation: scene-zoom-in 0.28s ease-out forwards;
 }
 
 @keyframes scene-zoom-in {
@@ -106,7 +133,7 @@
   }
 }
 
-/* ===== 3D Hotspot in Panorama Scene ===== */
+/* ===== 3D Hotspot in Panaroma Scene ===== */
 .scene-hotspot-pin {
   display: flex;
   flex-direction: column;
@@ -236,142 +263,93 @@
 .bottom-tool-btn:hover { background: #ffffff; transform: scale(1.06); box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
 .bottom-tool-btn:active { background: #f3f4f6; transform: scale(0.97); }
 
-/* ===== Extra Images Gallery ===== */
-.extra-gallery-bar {
+/* ===== Đa option ảnh cho 1 vị trí — nằm trên list panaroma (footer) ===== */
+.pano-image-options {
   position: absolute;
-  bottom: 132px;
+  bottom: calc(128px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
-  z-index: 46;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(20,20,20,0.55);
-  backdrop-filter: blur(8px) saturate(1.2);
-  -webkit-backdrop-filter: blur(8px) saturate(1.2);
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-  max-width: calc(100vw - 24px);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.extra-gallery-bar::-webkit-scrollbar { display: none; }
-.extra-thumb-btn {
-  width: 44px;
-  height: 28px;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 2px solid transparent;
-  padding: 0;
-  cursor: pointer;
-  background: #000;
-  transition: border-color 0.15s, transform 0.12s;
-}
-.extra-thumb-btn:hover { border-color: #fff; transform: scale(1.05); }
-.extra-thumb-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.extra-gallery-btn { position: relative; }
-.extra-badge {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  background: #ef4444;
-  color: #fff;
-  font-size: 9px;
-  font-weight: 700;
-  min-width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 3px;
-  line-height: 1;
-}
-.extra-image-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 50;
-  background: #0a0a0a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.extra-image-img {
-  max-width: 100%;
-  max-height: 100vh;
-  object-fit: contain;
-  display: block;
-}
-.extra-pano-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 40;
-  pointer-events: none;
+  z-index: 41;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 16px;
-}
-.extra-pano-overlay .extra-close-btn,
-.extra-pano-overlay .extra-nav { pointer-events: auto; }
-.extra-close-btn {
-  position: absolute;
-  top: 56px;
-  left: 16px;
-  z-index: 2;
-  background: rgba(255,255,255,0.96);
-  border: 1px solid rgba(0,0,0,0.08);
-  color: #1f2937;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 999px;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.22);
-  white-space: nowrap;
-  max-width: calc(100vw - 32px);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.extra-close-btn:hover { background: #fff; }
-.extra-nav {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+  pointer-events: auto;
+  max-width: min(70vw, 560px);
+  width: max-content;
+}
+.pano-image-options-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(6px);
-  padding: 6px 12px;
+  padding: 3px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.15);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
-.extra-nav-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.9);
-  color: #1f2937;
-  font-size: 16px;
-  cursor: pointer;
+.pano-image-options-track {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 5px;
 }
-.extra-nav-btn:disabled { opacity: 0.35; cursor: default; }
-.extra-nav-label { color: #fff; font-size: 12px; font-weight: 600; }
-.extra-thumb-btn.active { border-color: #3b82f6 !important; box-shadow: 0 0 0 2px rgba(59,130,246,0.5); }
-.extra-thumb-back { background: rgba(255,255,255,0.9); color: #1f2937; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: none; }
-.extra-gallery-bar--active { background: rgba(20,20,20,0.7); border-color: rgba(59,130,246,0.4); }
-.extra-gallery-bar--footer-collapsed { bottom: 32px !important; }
+.pano-image-options-track::-webkit-scrollbar { display: none; }
+.pano-image-opt {
+  position: relative;
+  flex: 0 0 auto;
+  width: 130px;
+  height: 85px;
+  border: 1px solid rgba(255,255,255,0.6);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  opacity: 1;
+}
+.pano-image-opt:hover { opacity: 1; border-color: #fff;}
+.pano-image-opt.active { border-color: #3b82f6; opacity: 1;}
+.pano-image-opt-thumb {
+  width: 100%;
+  height: calc(100% - 20px);
+  object-fit: cover;
+  display: block;
+}
+.pano-image-opt-title {
+  font-size: 9px;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 6px 0;
+}
+.pano-image-opt-badge {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  font-size: 7px;
+  font-weight: 800;
+  color: #fff;
+  background: #2563eb;
+  padding: 1px 4px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+/* Khi footer thu gọn, kéo options xuống thấp hơn để không hở khoảng trống lớn */
+.main-viewport:has(.footer-wrap.collapsed) .pano-image-options { bottom: calc(38px + env(safe-area-inset-bottom, 0px)); }
 
-/* Tablet trở xuống: giữ dọc mảnh nhưng nhỏ gọn hơn, tránh đè footer */
+/* Fallback cho browser chưa hỗ trợ :has() */
+@supports not selector(:has(*)) {
+  .pano-image-options.is-footer-collapsed { bottom: 38px; }
+}
+
+/* Responsive: footer thấp hơn nên kéo options xuống gần footer hơn */
 @media (max-width: 1024px) {
+  .pano-image-options { bottom: calc(118px + env(safe-area-inset-bottom, 0px)); max-width: min(94vw, 520px); }
+  .main-viewport:has(.footer-wrap.collapsed) .pano-image-options { bottom: calc(34px + env(safe-area-inset-bottom, 0px)); }
   .pano-unified-minimap-wrap {
     right: auto !important;
     left: 8px !important;
@@ -382,44 +360,49 @@
   .pano-bottomleft-toolbar {
     left: 6px;
     top: auto;
-    bottom: 88px;
+    bottom: calc(112px + env(safe-area-inset-bottom, 0px));
     transform: none;
     flex-direction: column !important;
     padding: 6px 4px;
     gap: 6px;
     border-radius: 999px;
   }
-  .extra-gallery-bar { bottom: 118px; padding: 5px 8px; gap: 6px; max-width: calc(100vw - 16px); background: rgba(20,20,20,0.45); }
-  .extra-gallery-bar--footer-collapsed { bottom: 32px !important; }
-  .extra-thumb-btn { width: 36px; height: 22px; }
 }
-@media (max-width: 768px) {
-  .pano-unified-minimap-wrap { top: 40px; left: 4px !important; right: auto !important; }
+/* Phone dọc + phone landscape (iPhone 16 landscape = 852x393 -> width > 768 vẫn phải coi là phone) */
+@media (max-width: 768px), (max-width: 932px) and (max-height: 520px) {
+  .pano-image-options { bottom: calc(108px + env(safe-area-inset-bottom, 0px)); max-width: calc(100vw - 16px); justify-content: center; width: calc(100vw - 16px); }
+  .main-viewport:has(.footer-wrap.collapsed) .pano-image-options { bottom: calc(30px + env(safe-area-inset-bottom, 0px)); }
+  .pano-image-options-track { max-width: 100%; gap: 5px; padding: 4px 5px; justify-content: flex-start; }
+  /* Phone: đỗi vị trí với building-sidebar - mm-ctrls về bên phải như PC */
+  .pano-unified-minimap-wrap { top: 40px; left: auto !important; right: 4px !important; flex-direction: row !important; }
+  .pano-unified-minimap-wrap .mm-ctrl-btn { width: 44px; height: 38px; }
+  .pano-unified-minimap-wrap .mm-ctrl-btn.gyro-btn { font-size: 18px; }
+  /* Phone: toolbar +/-/⛶ thành hàng NGANG nhỏ, góc trái dưới */
   .pano-bottomleft-toolbar {
-    bottom: 88px;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
     left: 6px;
     top: auto;
     transform: none;
-    padding: 5px 3px;
+    flex-direction: row !important;
+    padding: 4px 5px;
     gap: 5px;
-    flex-direction: column;
-    border-radius: 999px;
   }
-  .bottom-tool-btn { width: 30px; height: 30px; font-size: 14px; }
-  .extra-gallery-bar { bottom: 100px; top: auto; left: 50%; transform: translateX(-50%); padding: 4px 6px; gap: 5px; max-width: calc(100vw - 16px); background: rgba(20,20,20,0.45); }
-  .extra-gallery-bar--footer-collapsed { bottom: 28px !important; }
-  .extra-thumb-btn { width: 32px; height: 20px; border-radius: 4px; }
-  .extra-nav { bottom: 12px; padding: 4px 8px; gap: 8px; }
+  .bottom-tool-btn { width: 24px; height: 24px; font-size: 12px; }
 }
-@media (max-width: 480px) {
+@media (max-width: 480px), (max-width: 932px) and (max-height: 600px) {
+  .pano-image-options { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); gap: 4px; max-width: calc(100vw - 12px); width: calc(100vw - 12px); }
+  .main-viewport:has(.footer-wrap.collapsed) .pano-image-options { bottom: calc(28px + env(safe-area-inset-bottom, 0px)); }
+  .pano-image-options-track { gap: 4px; padding: 3px 4px; border-radius: 8px; }
   .pano-bottomleft-toolbar {
-    bottom: 76px;
+    bottom: calc(6px + env(safe-area-inset-bottom, 0px));
     left: 4px;
     top: auto;
     transform: none;
+    flex-direction: row !important;
+    padding: 3px 4px;
+    gap: 4px;
   }
-  .bottom-tool-btn { width: 32px; height: 32px; }
-  .extra-gallery-bar { bottom: 86px; top: auto; padding: 4px 6px; gap: 4px; max-width: calc(100vw - 16px); }
-  .extra-gallery-bar--footer-collapsed { bottom: 24px !important; }
-  .extra-thumb-btn { width: 30px; height: 18px; }
+  .bottom-tool-btn { width: 22px; height: 22px; font-size: 11px; }
+  .pano-unified-minimap-wrap .mm-ctrl-btn { width: 38px; height: 34px; }
+  .pano-unified-minimap-wrap .mm-ctrl-btn.gyro-btn { font-size: 15px; }
 }

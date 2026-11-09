@@ -5,7 +5,7 @@ export default function BuildingSidebar({ buildings, activeBuilding, activeFloor
   if (!buildings || buildings.length === 0) {
     return (
       <aside className="building-sidebar" aria-label="Building selector">
-        <div style={{ padding: 12, fontSize: 12, color: "#64748b", textAlign: "center" }}>Chưa có Building</div>
+        <div style={{ padding: 12, fontSize: 12, color: "#64748b", textAlign: "center" }}>No building yet.</div>
       </aside>
     );
   }
@@ -15,11 +15,15 @@ export default function BuildingSidebar({ buildings, activeBuilding, activeFloor
         // single building button - building tách rời nên activeBuilding có thể null
         if (b.type === "single") {
           const isActive = activeBuilding?.id === b.id;
+          // Building bị ẩn (status = 0) -> disabled
+          const enabled = b.status !== 0;
           return (
             <button
               key={b.id}
               className={`bs-btn ${isActive ? "active" : ""}`}
-              onClick={() => onSelectBuilding(b)}
+              onClick={() => enabled && onSelectBuilding(b)}
+              disabled={!enabled}
+              title={enabled ? b.name : `${b.name} - hidden`}
             >
               {b.name}
             </button>
@@ -33,6 +37,8 @@ export default function BuildingSidebar({ buildings, activeBuilding, activeFloor
             <div className="bs-group-list">
               {b.floors.map((f) => {
                 const isActive = isGroupActive && activeFloor?.id === f.id;
+                // Floor bị ẩn (status = 0) -> disabled
+                const enabled = f.status !== 0;
                 return (
                   <button
                     key={f.id}
@@ -41,6 +47,8 @@ export default function BuildingSidebar({ buildings, activeBuilding, activeFloor
                       if (!isGroupActive) onSelectBuilding(b);
                       onSelectFloor(f);
                     }}
+                    disabled={!enabled}
+                    title={enabled ? f.name : `${f.name} - hidden`}
                   >
                     {f.name}
                   </button>

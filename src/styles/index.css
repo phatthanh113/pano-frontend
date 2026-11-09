@@ -9,7 +9,7 @@
 @import "../components/FloorMap/FloorMap.css";
 @import "../components/FooterCarousel/FooterCarousel.css";
 @import "../components/TopHeader/TopHeader.css";
-@import "../components/PanoramaViewer/PanoramaViewer.css";
+@import "../components/PanaromaViewer/PanaromaViewer.css";
 
 /* App Layout */
 .app-layout {

@@ -2,10 +2,10 @@ import React from "react";
 
 export default function MiniMap({
   floor,
-  activePanorama,
+  activePanaroma,
   currentYaw = 0,
   scale = 1,
-  onSelectPanorama,
+  onSelectPanaroma,
   onOpenFullMap,
   onZoomChange
 }) {
@@ -31,7 +31,7 @@ export default function MiniMap({
       className="pano-minimap-box"
       style={{ width: `${mapSize}px` }}
       onWheel={handleWheel}
-      title="Bản đồ thu nhỏ (Cuộn chuột hoặc dùng +/- để phóng to)"
+      title="Mini-map (Scroll or use +/- to zoom in)"
     >
       <div
         className="pano-minimap-img-wrap"
@@ -44,8 +44,8 @@ export default function MiniMap({
           draggable={false}
         />
 
-        {floor?.panoramas?.map((pano) => {
-          const isActive = activePanorama?.id === pano.id;
+        {floor?.panaromas?.map((pano) => {
+          const isActive = activePanaroma?.id === pano.id;
 
           return (
             /**
@@ -64,7 +64,7 @@ export default function MiniMap({
               }}
               onClick={(e) => {
                 e.stopPropagation();
-                onSelectPanorama(pano);
+                onSelectPanaroma(pano);
               }}
               title={pano.name}
             >

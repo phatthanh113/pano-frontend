@@ -40,17 +40,22 @@
 
 .gmap-close {
   position: absolute;
-  top: -2px;
-  right: -38px;
-  width: 32px;
-  height: 32px;
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 32px;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid #dadce0;
+  color: #333;
+  font-size: 20px;
   line-height: 1;
+  border-radius: 50%;
   cursor: pointer;
-  z-index: 3;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
 }
 
 .gmap-fullscreen {
@@ -70,5 +75,4 @@
 @media (max-width: 768px) {
   .gmap-overlay { padding: 12px; }
   .gmap-modal { width: 96vw; height: 70vh; }
-  .gmap-close { right: 6px; top: 6px; color: #333; background: #fff; border-radius: 50%; font-size: 22px; width: 28px; height: 28px; }
 }

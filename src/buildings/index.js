@@ -22,16 +22,16 @@ export function getFloorById(floorId) {
   return buildings[0];
 }
 
-// Tìm panorama trong toàn bộ buildings
-export function findPanoramaById(panoramaId) {
+// Tìm panaroma trong toàn bộ buildings
+export function findPanaromaById(panaromaId) {
   for (const b of buildings) {
     if (b.type === "single") {
-      const pano = b.panoramas.find((p) => p.id === panoramaId);
-      if (pano) return { building: b, floor: b, panorama: pano };
+      const pano = b.panaromas.find((p) => p.id === panaromaId);
+      if (pano) return { building: b, floor: b, panaroma: pano };
     } else {
       for (const f of b.floors) {
-        const pano = f.panoramas.find((p) => p.id === panoramaId);
-        if (pano) return { building: b, floor: f, panorama: pano };
+        const pano = f.panaromas.find((p) => p.id === panaromaId);
+        if (pano) return { building: b, floor: f, panaroma: pano };
       }
     }
   }
@@ -39,12 +39,15 @@ export function findPanoramaById(panoramaId) {
 }
 
 // Lấy floor hiện tại đang active để render map - building tách rời nên có thể null
+// Floor bị ẩn (status = 0) bị loại khỏi pool fallback, ưu tiên tầng hiển thị
 export function getActiveFloor(building, floorId) {
   if (!building) return null;
   if (building.type === "single") return building;
   if (!building.floors || building.floors.length === 0) return building;
-  if (!floorId) return building.floors[0];
-  return building.floors.find((f) => f.id === floorId) || building.floors[0];
+  const visible = building.floors.filter((f) => f.status !== 0);
+  const pool = visible.length ? visible : building.floors;
+  if (!floorId) return pool[0];
+  return pool.find((f) => f.id === floorId) || pool[0];
 }
 
 export default buildings;
